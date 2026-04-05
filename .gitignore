@@ -1,0 +1,6 @@
+# Sistemas operativos
+.DS_Store
+Thumbs.db
+
+# TypeScript
+interfaces.ts

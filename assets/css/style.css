@@ -1,0 +1,71 @@
+#hero-section {
+  background-image: url("../img/bg-santiago.jpg");
+  background-size: cover;
+  background-position: center bottom;
+}
+
+.hero-card {
+  cursor: pointer;
+}
+
+.pronostico-siglas {
+  width: 34px;
+}
+
+.pronostico-climas-container {
+  width: 55px;
+}
+
+.pronostico-temperaturas {
+  width: 48px;
+  text-align: end;
+}
+
+.card-regiones {
+  cursor: pointer;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+}
+
+.card-regiones:hover {
+  transform: translateY(-5px);
+  /* box-shadow recibe hasta 5 propiedades */
+  /* desplazamiento-x desplazamiento-y desenfoque propagacion color */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-regiones .card-img-top {
+  height: 200px;
+}
+
+#vista-detalle {
+  background-color: #1a1a2e;
+  color: #e0e0e0;
+}
+
+#detalle-container .img-fluid {
+  max-height: 360px;
+}
+
+#detalle-container .list-group-item {
+  background-color: #16213e;
+  color: #e0e0e0;
+}
+
+.detalle-descripcion {
+  font-size: 0.875rem;
+}
+
+.detalle-img {
+  height: 200px;
+  width: 100%;
+}
+
+@media (width >= 768px) {
+  .detalle-img {
+    height: 360px;
+    width: 420px;
+    max-width: 100%;
+  }
+}
