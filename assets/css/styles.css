@@ -1,0 +1,131 @@
+.bgc-accent {
+  background-color: #2fd5ff;
+}
+
+.bgc-accent-light {
+  background-color: rgb(171.8, 238.2, 255);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.body {
+  background-color: #fff;
+  background-attachment: fixed;
+  color: #272727;
+  padding: 8px;
+}
+.body--home {
+  background-image: radial-gradient(125% 125% at 50% 90%, #fff 40%, #2fd5ff 100%);
+}
+.body--detail {
+  background-image: radial-gradient(125% 125% at 50% 90%, #1a1a2e 40%, #2fd5ff 100%);
+}
+
+.forecast__temperatures, .forecast__climates, .forecast__day {
+  width: 55px;
+}
+
+.forecast__list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border: 1px solid rgb(171.8, 238.2, 255);
+}
+.forecast__list-item--home {
+  background-color: inherit;
+}
+.forecast__list-item--detail {
+  background-color: #16213e;
+  color: #e0e0e0;
+}
+.forecast__temperatures {
+  text-align: end;
+}
+
+.hero-card {
+  cursor: pointer;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.regions-card {
+  border-color: rgb(171.8, 238.2, 255);
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.regions-card:hover {
+  transform: translateY(-5px);
+  /* box-shadow recibe hasta 5 propiedades */
+  /* desplazamiento-x desplazamiento-y desenfoque propagacion color */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+.regions-card__image {
+  height: 200px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+/* %base-paragraph {
+    font-weight: weight(regular);
+
+    &:hover {
+        color: pink;
+    }
+}
+
+.main {
+    @include flex-center(row);
+    width: 80% - 40%;
+    margin: 0 auto;
+
+    &__paragraph1 {
+        @extend %base-paragraph;
+    }
+
+    &__paragraph2 {
+        @extend %base-paragraph;
+
+        &:hover {
+            color: $accent-color;
+        }
+    }
+
+    @include mobile {
+        width: 100%;
+        flex-direction: column;
+    }
+} */
+.footer {
+  background-color: rgb(171.8, 238.2, 255);
+  color: #1a1a2e;
+  text-align: center;
+}
+
+.hero-section {
+  background-image: url("../img/bg-santiago.jpg");
+  background-size: cover;
+  background-position: center bottom;
+}
+
+.detail-view {
+  color: #e0e0e0;
+}
+.detail-view__image {
+  height: 360px;
+  width: 420px;
+  max-width: 100%;
+}
+.detail-view__desciption {
+  font-size: 0.875rem;
+}
+@media (width <= 767px) {
+  .detail-view__image {
+    height: 200px;
+    width: 100%;
+  }
+}/*# sourceMappingURL=styles.css.map */

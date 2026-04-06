@@ -1,7 +1,7 @@
 @use "../abstracts" as *;
 
 // %, es un placeholder selector, que se utiliza para definir estilos que pueden ser extendidos por otros selectores
-%base-paragraph {
+/* %base-paragraph {
     font-weight: weight(regular);
 
     &:hover {
@@ -30,4 +30,4 @@
         width: 100%;
         flex-direction: column;
     }
-}
+} */

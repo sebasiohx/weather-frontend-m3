@@ -1198,6 +1198,7 @@ const regiones = [
 ];
 
 /* referencias DOM */
+const body = document.querySelector("body");
 const heroSection = document.querySelector("#hero-section");
 const vistaHome = document.querySelector("#vista-home");
 const regionesContainer = document.querySelector("#regiones-container");
@@ -1232,16 +1233,23 @@ function pronosticoHTML(region) {
     ...region.pronostico.slice(0, indiceDiaHoyRegion),
   ];
 
+  let vistaClass = "";
+  if (body.classList.contains("body--detail")) {
+    vistaClass = "forecast__list-item--detail";
+  } else {
+    vistaClass = "forecast__list-item--home";
+  }
+
   return pronosticoRotado
     .map((dia) => {
       return `
-    <li class="list-group-item d-flex justify-content-between align-items-baseline border-info-subtle">
-      <p class="pronostico-siglas mb-0">${dia.siglas}</p>
-      <div class="pronostico-climas-container">
+    <li class="forecast__list-item ${vistaClass} list-group-item">
+      <p class="forecast__day mb-0">${dia.siglas}</p>
+      <div class="forecast__climates">
         <i class="fa-solid ${dia.climaDia.icono} text-info" title="${dia.climaDia.texto}"></i> /
         <i class="fa-solid ${dia.climaNoche.icono} text-info" title="${dia.climaNoche.texto}"></i>
       </div>
-      <p class="pronostico-temperaturas mb-0">${dia.tempMin}°/${dia.tempMax}</p>
+      <p class="forecast__temperatures mb-0">${dia.tempMin}°/${dia.tempMax}°</p>
     </li>
     `;
     })
@@ -1275,7 +1283,7 @@ function renderHero() {
   <div class="container">
     <div class="row">
       <div class="col-md-10 offset-md-1">
-        <article class="row d-flex flex-row card p-4 hero-card" data-id="${rm.id}">
+        <article class="row d-flex flex-md-row card p-4 hero-card" data-id="${rm.id}">
           <div class="col-md-6">
             <h2 class="fw-bolder mb-1">
               <i class="fa-solid fa-location-dot"></i>
@@ -1299,7 +1307,7 @@ function renderHero() {
 
           <div class="col-md-6">
             <p class="lead">Pronóstico siguientes 6 días</p>
-            <ul class="list-group">
+            <ul class="list-group forecast">
               ${pronosticoHTML(rm)}
             </ul>
           </div>
@@ -1325,10 +1333,10 @@ function renderCards() {
   regiones.forEach((region) => {
     html += `
     <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-      <article class="card card-regiones" data-id="${region.id}">
+      <article class="card regions-card" data-id="${region.id}">
         <img
           src="./assets/img/${region.img}"
-          class="card-img-top object-fit-cover"
+          class="regions-card__image object-fit-cover"
           alt="${region.ciudadCapital}"
         />
         <div class="card-body">
@@ -1373,7 +1381,7 @@ function renderDetalle(id) {
       <div class="col-md-6">
         <img
           src="./assets/img/${region.img}"
-          class="detalle-img object-fit-cover mb-4 mb-md-0"
+          class="detail-view__image object-fit-cover mb-4 mb-md-0 rounded"
           alt="${region.ciudadCapital}"
         />
       </div>
@@ -1382,7 +1390,7 @@ function renderDetalle(id) {
           <i class="fa-solid fa-location-dot"></i> ${region.ciudadCapital}
         </h2>
         <h5 class="mb-4">Región ${imprimirPronombre(region.id)} ${region.nombreRegion}</h5>
-        <p class="detalle-descripcion mb-0">
+        <p class="detail-view__description mb-0">
           ${region.descripcion}
         </p>
       </div>
@@ -1434,7 +1442,7 @@ function renderDetalle(id) {
         <p class="lead text-center mt-2">
           Pronóstico siguientes 6 días
         </p>
-        <ul id="pronostico-detalle" class="list-group">
+        <ul id="pronostico-detalle" class="list-group forecast">
           ${pronosticoHTML(region)}
         </ul>
       </div>
@@ -1445,10 +1453,18 @@ function renderDetalle(id) {
 
 function mostrarDetalle(id) {
   renderDetalle(id);
+  let forecastListItem = document.querySelectorAll(".forecast__list-item");
 
   heroSection.classList.add("d-none");
   vistaHome.classList.add("d-none");
   vistaDetalle.classList.remove("d-none");
+  body.classList.replace("body--home", "body--detail");
+  forecastListItem.forEach((item) =>
+    item.classList.replace(
+      "forecast__list-item--home",
+      "forecast__list-item--detail",
+    ),
+  );
 
   window.scrollTo({
     top: 0,
@@ -1457,9 +1473,18 @@ function mostrarDetalle(id) {
 }
 
 function mostrarHome() {
+  let forecastListItem = document.querySelectorAll(".forecast__list-item");
+
   heroSection.classList.remove("d-none");
   vistaHome.classList.remove("d-none");
   vistaDetalle.classList.add("d-none");
+  body.classList.replace("body--detail", "body--home");
+  forecastListItem.forEach((item) =>
+    item.classList.replace(
+      "forecast__list-item--detail",
+      "forecast__list-item--home",
+    ),
+  );
 
   window.scrollTo({
     top: 0,
@@ -1468,7 +1493,7 @@ function mostrarHome() {
 }
 
 regionesContainer.addEventListener("click", (event) => {
-  const card = event.target.closest(".card-regiones");
+  const card = event.target.closest(".regions-card");
 
   // guardian
   if (!card) {

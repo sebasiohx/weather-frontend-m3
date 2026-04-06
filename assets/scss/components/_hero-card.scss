@@ -1,0 +1,8 @@
+@use "../abstracts/" as *;
+
+.hero-card {
+  cursor: pointer;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba($color-bg, 0.75);
+}

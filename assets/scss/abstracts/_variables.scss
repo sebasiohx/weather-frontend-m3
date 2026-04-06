@@ -1,12 +1,28 @@
-$primary-color: #272727;
-$accent-color: #ff652f;
-$text-color: #fff;
+@use "sass:color";
+
+$color-primary: #1a1a2e;
+$color-secondary: #16213e;
+$color-accent: #2fd5ff;
+$color-accent-light: color.scale($color-accent, $lightness: 60%);
+$color-text-1: #272727;
+$color-text-2: #e0e0e0;
+$color-bg: #fff;
+$bg-gradient-home: radial-gradient(
+  125% 125% at 50% 90%,
+  $color-bg 40%,
+  $color-accent 100%
+);
+$bg-gradient-detail: radial-gradient(
+  125% 125% at 50% 90%,
+  $color-primary 40%,
+  $color-accent 100%
+);
 
 // Map
 $font-weights: (
-    "regular": 400,
-    "medium": 500,
-    "bold": 700,
+  "regular": 400,
+  "medium": 500,
+  "bold": 700,
 );
 
-$mobile: 800px;
+$mobile: 767px;
