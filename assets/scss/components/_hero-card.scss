@@ -5,6 +5,24 @@
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   background-color: rgba($color-bg, 0.6);
 
+  &__inner-card {
+    background-color: $color-bg;
+    color: $color-text-1;
+    padding: 1rem;
+    border-radius: 6px;
+    @include flex-center(column);
+  }
+
+  &__region {
+    @include text-lead;
+    margin-bottom: 0;
+  }
+
+  &__date {
+    @include text-lead($fsz: "big");
+    margin-bottom: 1rem;
+  }
+
   &__btn-action {
     background-color: $color-primary;
     color: $color-text-1;

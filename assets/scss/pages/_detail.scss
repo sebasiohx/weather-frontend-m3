@@ -8,8 +8,18 @@
     width: 420px;
     max-width: 100%;
   }
+
+  &__region {
+    @include text-lead;
+    margin-bottom: 1.5rem;
+  }
+
   &__desciption {
     font-size: 0.875rem;
+  }
+
+  &__subtitle {
+    @include text-lead;
   }
 
   @include mobile {

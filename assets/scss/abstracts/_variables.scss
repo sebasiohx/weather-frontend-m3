@@ -21,9 +21,23 @@ $bg-gradient-detail: radial-gradient(
 
 // Map
 $font-weights: (
+  "light": 300,
   "regular": 400,
   "medium": 500,
   "bold": 700,
 );
+$font-sizes: (
+  //12px
+  "small": 0.75rem,
+  //16px
+  "regular": 1rem,
+  //18px
+  "big": 1.125rem,
+  //20px
+  "lead": 1.25rem,
+  //36px
+  "title": 2.25rem
+);
 
 $mobile: 767px;
+$monitor: 1023px;

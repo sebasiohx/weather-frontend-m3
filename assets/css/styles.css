@@ -75,6 +75,26 @@
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   background-color: rgba(255, 255, 255, 0.6);
 }
+.hero-card__inner-card {
+  background-color: #fff;
+  color: #272727;
+  padding: 1rem;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.hero-card__region {
+  font-size: 1.25rem;
+  font-weight: 300;
+  margin-bottom: 0;
+}
+.hero-card__date {
+  font-size: 1.125rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
 .hero-card__btn-action {
   background-color: #2fd5ff;
   color: #272727;
@@ -121,10 +141,19 @@
   width: 420px;
   max-width: 100%;
 }
+.detail-view__region {
+  font-size: 1.25rem;
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+}
 .detail-view__desciption {
   font-size: 0.875rem;
 }
-@media (width <= 767px) {
+.detail-view__subtitle {
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+@media screen and (width <= 767px) {
   .detail-view__image {
     height: 200px;
     width: 100%;
