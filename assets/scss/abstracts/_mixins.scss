@@ -24,9 +24,30 @@
   }
 }
 
+// color backgrounds
+.bgc-primary {
+  background-color: $color-primary;
+}
+.bgc-primary-light {
+  background-color: $color-primary-light;
+}
+.bgc-secondary {
+  background-color: $color-secondary;
+}
 .bgc-accent {
   background-color: $color-accent;
 }
-.bgc-accent-light {
-  background-color: $color-accent-light;
+
+// color text
+.tc-primary {
+  color: $color-primary;
+}
+.tc-primary-light {
+  color: $color-primary-light;
+}
+.tc-secondary {
+  color: $color-secondary;
+}
+.tc-accent {
+  color: $color-accent;
 }

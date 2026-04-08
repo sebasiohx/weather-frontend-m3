@@ -27,9 +27,9 @@
     <link rel="stylesheet" href="./assets/css/styles.css" />
   </head>
   <body class="body body--home d-flex flex-column min-vh-100 p-2">
-    <nav class="navbar navbar-expand-lg bgc-accent sticky-top rounded mb-2">
+    <nav class="navbar navbar-expand-lg bgc-primary sticky-top rounded mb-2">
       <div class="container-fluid">
-        <a class="btn-home navbar-brand fw-bold" href="#"
+        <a class="btn-home navbar-brand fw-bold tc-accent" href="#"
           ><i class="fa-solid fa-cloud-sun me-2"></i>MeteoChile</a
         >
         <button
@@ -74,7 +74,7 @@
           <div class="row">
             <div class="col-10 offset-1 col-lg-8 offset-lg-2">
               <button class="btn btn-home btn-outline-light mb-4">
-                <i class="fa-solid fa-arrow-left"></i> Volver al catalogo
+                <i class="fa-solid fa-arrow-left"></i> Volver al Inicio
               </button>
 
               <article id="detalle-container"></article>
@@ -86,9 +86,18 @@
 
     <footer class="footer py-4 rounded">
       <div class="container">
-        <p class="mb-0">
-          <i class="fa-solid fa-cloud-sun me-2"></i>MeteoChile &copy;2026
-        </p>
+        <div class="row">
+          <div class="col-md-6">
+            <p class="fs-6">
+              <i class="fa-solid fa-cloud-sun me-2"></i>MeteoChile &copy;2026
+            </p>
+            <p class="fs-6">Hecho por Sebastián Olate Huenuñir</p>
+            <p class="fs-6">
+              Sitio web del clima de las regiones de Chile, hecho con Bootstrap,
+              SASS y Javascript Vanilla
+            </p>
+          </div>
+        </div>
       </div>
     </footer>
 

@@ -1,21 +1,22 @@
 @use "sass:color";
 
-$color-primary: #1a1a2e;
-$color-secondary: #16213e;
-$color-accent: #2fd5ff;
-$color-accent-light: color.scale($color-accent, $lightness: 60%);
+$color-primary: #2fd5ff;
+$color-primary-light: color.scale($color-primary, $lightness: 50%);
+$color-primary-dark: color.scale($color-primary, $lightness: -35%);
+$color-secondary: #1a1a2e;
+$color-accent: #243870;
 $color-text-1: #272727;
 $color-text-2: #e0e0e0;
 $color-bg: #fff;
 $bg-gradient-home: radial-gradient(
   125% 125% at 50% 90%,
   $color-bg 40%,
-  $color-accent 100%
+  $color-primary-dark 100%
 );
 $bg-gradient-detail: radial-gradient(
   125% 125% at 50% 90%,
-  $color-primary 40%,
-  $color-accent 100%
+  $color-secondary 40%,
+  $color-primary 100%
 );
 
 // Map

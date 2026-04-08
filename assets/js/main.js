@@ -1230,7 +1230,7 @@ function pronosticoHTML(region) {
 
   const pronosticoRotado = [
     ...region.pronostico.slice(indiceDiaHoyRegion + 1),
-    ...region.pronostico.slice(0, indiceDiaHoyRegion),
+    ...region.pronostico.slice(0, indiceDiaHoyRegion + 1),
   ];
 
   let vistaClass = "";
@@ -1246,8 +1246,8 @@ function pronosticoHTML(region) {
     <li class="forecast__list-item ${vistaClass} list-group-item">
       <p class="forecast__day mb-0">${dia.siglas}</p>
       <div class="forecast__climates">
-        <i class="fa-solid ${dia.climaDia.icono} text-info" title="${dia.climaDia.texto}"></i> /
-        <i class="fa-solid ${dia.climaNoche.icono} text-info" title="${dia.climaNoche.texto}"></i>
+        <i class="fa-solid ${dia.climaDia.icono} tc-primary" title="${dia.climaDia.texto}"></i> /
+        <i class="fa-solid ${dia.climaNoche.icono} tc-primary" title="${dia.climaNoche.texto}"></i>
       </div>
       <p class="forecast__temperatures mb-0">${dia.tempMin}°/${dia.tempMax}°</p>
     </li>
@@ -1283,35 +1283,67 @@ function renderHero() {
   <div class="container">
     <div class="row">
       <div class="col-md-10 offset-md-1">
-        <article class="row d-flex flex-md-row card p-4 hero-card" data-id="${rm.id}">
+        <div class="row d-flex flex-md-row g-3">
           <div class="col-md-6">
-            <h2 class="fw-bolder mb-1">
-              <i class="fa-solid fa-location-dot"></i>
-              <span>${rm.ciudadCapital}</span>
-            </h2>
-            <h2 class="h5 fw-light mb-4">Región ${imprimirPronombre(rm.id)} ${rm.nombreRegion}</h2>
-            <div class="text-center text-md-start">
-              <h1 class="display-1 fw-bold text-body-emphasis lh-1 mb-2">
-                <span>${rm.tempActual}°</span>
-                <i
-                  class="fa-solid ${rm.estadoClimatico.icono} display-4 mt-3 text-info"
-                ></i>
-              </h1>
-              <h3 class="ms-1"><span>${rm.tempMinima}°</span> / <span>${rm.tempMaxima}°</span></h3>
-              <p class="mb-2">
-                <span class="badge text-bg-secondary mb-4">${rm.estadoClimatico.texto}</span>
-              </p>
-            </div>
-            <h4 class="lead">${imprimirFecha(hoy)}</h4>
+            <article class="card p-4 hero-card">
+              <div class="row g-2">
+                <div class="col-12">
+                  <div class="card p-2 border-0">
+                    <h2 class="fw-bolder mb-1">
+                      <i class="fa-solid fa-location-dot tc-primary"></i>
+                      <span>${rm.ciudadCapital}</span>
+                    </h2>
+                    <h2 class="fs-5 fw-light mb-0">
+                      Región ${imprimirPronombre(rm.id)} ${rm.nombreRegion}
+                    </h2>
+                  </div>
+                </div>
+                <div class="col-6 col-md-5">
+                  <div class="card p-3 d-flex flex-column justify-content-center align-items-center border-0">
+                    <div class="ms-1">
+                      <h1 class="display-2 fw-bold text-body-emphasis lh-1 mb-2">
+                        <span class="tc-accent">${rm.tempActual}°</span>
+                      </h1>
+                      <h3 class="ms-1 text-body-emphasis">
+                        <span>${rm.tempMinima}°</span> / <span>${rm.tempMaxima}°</span>
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4">
+                  <div class="card p-3 d-flex flex-column justify-content-center align-items-center gap-3 h-100 border-0">
+                    <i
+                      class="fa-solid ${rm.estadoClimatico.icono} display-1 tc-primary"
+                    ></i>
+                    <p class="mb-0">
+                      <span class="badge bgc-accent"
+                        >${rm.estadoClimatico.texto}</span
+                      >
+                    </p>
+                  </div>
+                </div>
+
+                <div class="col-12 text-center text-md-start">
+                  <h4 class="lead mb-3 fs-6">${imprimirFecha(hoy)}*</h4>
+                  <button type="button" id="btn-hero" class="btn hero-card__btn-action btn-lg"  data-id="${rm.id}">Ver detalles</button>
+                </div>
+              </div>
+            </article>
           </div>
 
           <div class="col-md-6">
-            <p class="lead">Pronóstico siguientes 6 días</p>
-            <ul class="list-group forecast">
-              ${pronosticoHTML(rm)}
-            </ul>
+            <article>
+              <div class="card p-3 mb-3 hero-card">
+                <h5 class="mb-0">Pronóstico siguientes 7 días</h5>
+              </div>
+              <div class="card p-4 hero-card">
+                <ul class="list-group forecast">
+                  ${pronosticoHTML(rm)}
+                </ul>
+              </div>
+            </article>
           </div>
-        </article>
+        </div>
       </div>
     </div>
   </div>
@@ -1319,10 +1351,10 @@ function renderHero() {
 
   heroSection.innerHTML = html;
 
-  const heroCard = document.querySelector(".hero-card");
+  const btnHero = document.querySelector("#btn-hero");
 
-  heroCard.addEventListener("click", () => {
-    mostrarDetalle(Number(heroCard.dataset.id));
+  btnHero.addEventListener("click", () => {
+    mostrarDetalle(Number(btnHero.dataset.id));
   });
 }
 
@@ -1341,22 +1373,22 @@ function renderCards() {
         />
         <div class="card-body">
           <h3 class="card-title h5">
-            <i class="fa-solid fa-location-dot"></i> 
+            <i class="fa-solid fa-location-dot tc-primary"></i> 
             ${region.ciudadCapital}
           </h3>
           <h2
             class="display-5 fw-bold text-body-emphasis lh-1 mb-2 d-flex justify-content-between align-items-baseline"
           >
-            <span>${region.tempActual}°</span>
+            <span class="tc-accent">${region.tempActual}°</span>
             <i
-              class="fa-solid ${region.estadoClimatico.icono} display-6 text-info mt-3"
+              class="fa-solid ${region.estadoClimatico.icono} display-6 tc-primary mt-3"
             ></i>
           </h2>
           <p
             class="ms-1 mb-0 d-flex justify-content-between align-items-baseline"
           >
             <span>${region.tempMinima}°/${region.tempMaxima}°</span>
-            <span class="badge text-bg-secondary">${region.estadoClimatico.texto}</span>
+            <span class="badge bgc-accent">${region.estadoClimatico.texto}</span>
           </p>
         </div>
       </article>
@@ -1371,7 +1403,7 @@ function renderDetalle(id) {
   const region = regiones.find((r) => r.id === id);
 
   if (!region) {
-    detalleContainer.innerHTML = "<p>No se encontró la región</p>";
+    detalleContainer.innerHTML = "<h2>No se encontró la región</h2>";
     return;
   }
 
@@ -1389,7 +1421,7 @@ function renderDetalle(id) {
         <h2 class="fw-bolder mb-1">
           <i class="fa-solid fa-location-dot"></i> ${region.ciudadCapital}
         </h2>
-        <h5 class="mb-4">Región ${imprimirPronombre(region.id)} ${region.nombreRegion}</h5>
+        <h5 class="lead mb-4">Región ${imprimirPronombre(region.id)} ${region.nombreRegion}</h5>
         <p class="detail-view__description mb-0">
           ${region.descripcion}
         </p>
@@ -1440,7 +1472,7 @@ function renderDetalle(id) {
     <div class="row">
       <div class="col-12 col-md-8 offset-md-2">
         <p class="lead text-center mt-2">
-          Pronóstico siguientes 6 días
+          Pronóstico siguientes 7 días
         </p>
         <ul id="pronostico-detalle" class="list-group forecast">
           ${pronosticoHTML(region)}

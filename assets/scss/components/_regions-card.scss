@@ -1,7 +1,7 @@
 @use "../abstracts/" as *;
 
 .regions-card {
-  border-color: $color-accent-light;
+  border-color: $color-primary-light;
   cursor: pointer;
   transition:
     transform 0.3s,

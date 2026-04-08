@@ -1,7 +1,6 @@
 @use "../abstracts/" as *;
 
 .footer {
-  background-color: $color-accent-light;
-  color: $color-primary;
-  text-align: center;
+  background-color: $color-primary-light;
+  color: $color-accent;
 }

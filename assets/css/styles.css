@@ -1,9 +1,33 @@
-.bgc-accent {
+.bgc-primary {
   background-color: #2fd5ff;
 }
 
-.bgc-accent-light {
-  background-color: rgb(171.8, 238.2, 255);
+.bgc-primary-light {
+  background-color: #97eaff;
+}
+
+.bgc-secondary {
+  background-color: #1a1a2e;
+}
+
+.bgc-accent {
+  background-color: #243870;
+}
+
+.tc-primary {
+  color: #2fd5ff;
+}
+
+.tc-primary-light {
+  color: #97eaff;
+}
+
+.tc-secondary {
+  color: #1a1a2e;
+}
+
+.tc-accent {
+  color: #243870;
 }
 
 *,
@@ -19,7 +43,7 @@
   padding: 8px;
 }
 .body--home {
-  background-image: radial-gradient(125% 125% at 50% 90%, #fff 40%, #2fd5ff 100%);
+  background-image: radial-gradient(125% 125% at 50% 90%, #fff 40%, rgb(0, 156.6625, 196.3) 100%);
 }
 .body--detail {
   background-image: radial-gradient(125% 125% at 50% 90%, #1a1a2e 40%, #2fd5ff 100%);
@@ -33,13 +57,13 @@
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  border: 1px solid rgb(171.8, 238.2, 255);
+  border: 1px solid #97eaff;
 }
 .forecast__list-item--home {
-  background-color: inherit;
+  background-color: #fff;
 }
 .forecast__list-item--detail {
-  background-color: #16213e;
+  background-color: #243870;
   color: #e0e0e0;
 }
 .forecast__temperatures {
@@ -47,14 +71,22 @@
 }
 
 .hero-card {
-  cursor: pointer;
-  backdrop-filter: blur(16px) saturate(180%);
+  backdrop-filter: blur(8px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
-  background-color: rgba(255, 255, 255, 0.75);
+  background-color: rgba(255, 255, 255, 0.6);
+}
+.hero-card__btn-action {
+  background-color: #2fd5ff;
+  color: #272727;
+}
+.hero-card__btn-action:hover {
+  background-color: #97eaff;
+  border-color: rgb(0, 156.6625, 196.3);
+  transition: background 300ms, border 600ms;
 }
 
 .regions-card {
-  border-color: rgb(171.8, 238.2, 255);
+  border-color: #97eaff;
   cursor: pointer;
   transition: transform 0.3s, box-shadow 0.3s;
 }
@@ -70,40 +102,9 @@
   border-top-right-radius: 6px;
 }
 
-/* %base-paragraph {
-    font-weight: weight(regular);
-
-    &:hover {
-        color: pink;
-    }
-}
-
-.main {
-    @include flex-center(row);
-    width: 80% - 40%;
-    margin: 0 auto;
-
-    &__paragraph1 {
-        @extend %base-paragraph;
-    }
-
-    &__paragraph2 {
-        @extend %base-paragraph;
-
-        &:hover {
-            color: $accent-color;
-        }
-    }
-
-    @include mobile {
-        width: 100%;
-        flex-direction: column;
-    }
-} */
 .footer {
-  background-color: rgb(171.8, 238.2, 255);
-  color: #1a1a2e;
-  text-align: center;
+  background-color: #97eaff;
+  color: #243870;
 }
 
 .hero-section {

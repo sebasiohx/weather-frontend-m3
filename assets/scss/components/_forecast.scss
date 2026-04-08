@@ -9,13 +9,13 @@
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    border: 1px solid $color-accent-light;
+    border: 1px solid $color-primary-light;
 
     &--home {
-      background-color: inherit;
+      background-color: $color-bg;
     }
     &--detail {
-      background-color: $color-secondary;
+      background-color: $color-accent;
       color: $color-text-2;
     }
   }
